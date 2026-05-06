@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Top AI News Today</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --border: #1e1e1e;
+      --text: #f0f0f0;
+      --muted: #999;
+      --tag-bg: #151515;
+      --mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'Courier New', monospace;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, transparent 30%, var(--bg) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    nav {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 28px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--text); }
+
+    nav a.back {
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+    }
+
+    nav a.back:hover { color: var(--text); }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .updated {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 48px;
+      letter-spacing: 0.04em;
+    }
+
+    .section {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-of-type { border-bottom: none; }
+
+    h2 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #bbb;
+      margin-bottom: 14px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    a { color: var(--text); }
+    a:hover { color: var(--muted); }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 28px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.04em;
+      margin-bottom: 0;
+    }
+
+    footer a { color: #666; text-decoration: none; }
+    footer a:hover { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="index.html"><span>Top AI News</span> / today</a>
+    <a class="back" href="index.html">← Back</a>
+  </nav>
+
+  <div class="wrap">
+    <p class="eyebrow">Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: May 2026</p>
+
+    <div class="section">
+      <h2>What we collect</h2>
+      <p>When you subscribe to Top AI News Today, we collect your email address. That's it. We don't ask for your name, company, or any other personal information unless you choose to provide it.</p>
+    </div>
+
+    <div class="section">
+      <h2>How we use it</h2>
+      <p>Your email address is used solely to deliver the daily AI digest to your inbox. We do not use it for advertising, analytics profiling, or any purpose other than sending you the newsletter you signed up for.</p>
+    </div>
+
+    <div class="section">
+      <h2>Who we share it with</h2>
+      <p>We use SendGrid (a Twilio company) to deliver emails. Your email address is shared with SendGrid for the sole purpose of email delivery. We do not sell, rent, or share your data with any other third parties.</p>
+      <p>Subscriber data is stored in Supabase, a hosted Postgres database. Data is stored in a secure, access-controlled environment.</p>
+    </div>
+
+    <div class="section">
+      <h2>Data retention</h2>
+      <p>We retain your email address for as long as you remain subscribed. When you unsubscribe, your record is marked inactive and will not be included in future sends. You may request complete deletion at any time.</p>
+    </div>
+
+    <div class="section">
+      <h2>Unsubscribing</h2>
+      <p>You can unsubscribe at any time by emailing <a href="mailto:simon@topainews.today">simon@topainews.today</a> with "unsubscribe" in the subject line. We'll process your request within 24 hours.</p>
+    </div>
+
+    <div class="section">
+      <h2>Cookies & tracking</h2>
+      <p>This website does not use cookies, analytics scripts, or any tracking technology. The subscribe form communicates directly with our database to store your email address — no third-party tracking is involved.</p>
+    </div>
+
+    <div class="section">
+      <h2>Contact</h2>
+      <p>Questions about your data? Email us at <a href="mailto:simon@topainews.today">simon@topainews.today</a>.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Top AI News Today · <a href="mailto:simon@topainews.today">simon@topainews.today</a></p>
+    <p><a href="index.html">← Home</a></p>
+  </footer>
+
+</body>
+</html>

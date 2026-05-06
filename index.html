@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top AI News Today</title>
+  <meta name="description" content="A daily digest of the most important AI developments — curated from 25 top sources, filtered by Claude, delivered every morning.">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GQVVJF9PF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3GQVVJF9PF');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080808;
+      --bg2: #0f0f0f;
+      --border: #1e1e1e;
+      --text: #f0f0f0;
+      --muted: #999;
+      --accent: #e8e8e8;
+      --tag-bg: #151515;
+      --mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'Courier New', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: 32px 32px;
+      color: var(--text);
+      font-family: var(--mono);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Radial vignette so grid fades toward edges ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 90% 80% at 50% 30%, transparent 40%, var(--bg) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Layout ── */
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: relative;
+      z-index: 1;
+      padding: 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 680px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--text); }
+
+    nav a.cta-small {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      border-radius: 4px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav a.cta-small:hover { color: var(--text); border-color: #444; }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 80px 0 64px;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 58px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--muted);
+    }
+
+    .hero-body {
+      font-size: 16px;
+      line-height: 1.75;
+      color: #bbb;
+      max-width: 540px;
+    }
+
+    /* ── What's inside ── */
+    .section { padding: 56px 0; border-top: 1px solid var(--border); }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    @media (max-width: 520px) { .features { grid-template-columns: 1fr; } }
+
+    .feature-card {
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .feature-icon {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .feature-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #999;
+    }
+
+    /* ── Sources strip ── */
+    .sources-section { padding: 48px 0; border-top: 1px solid var(--border); }
+
+    .sources-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .source-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 5px 10px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Subscribe ── */
+    .subscribe-section { padding: 64px 0 80px; border-top: 1px solid var(--border); }
+
+    .subscribe-section h2 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .subscribe-section p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+      max-width: 460px;
+    }
+
+    @media (max-width: 480px) {
+      .form-row { flex-direction: column; }
+      .form-row button { width: 100%; justify-content: center; }
+    }
+
+    .form-row input {
+      flex: 1;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 13px;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-row input::placeholder { color: #555; }
+    .form-row input:focus { border-color: #555; }
+
+    .form-row button {
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: 6px;
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px 24px;
+      cursor: pointer;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .form-row button:hover { background: #ccc; }
+    .form-row button:active { transform: scale(0.98); }
+    .form-row button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-note {
+      margin-top: 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: #666;
+      letter-spacing: 0.04em;
+    }
+
+    .form-message {
+      margin-top: 16px;
+      font-size: 12px;
+      font-family: var(--mono);
+      display: none;
+    }
+
+    .form-message.success { color: #5a9; display: block; }
+    .form-message.error   { color: #c66; display: block; }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      max-width: 680px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    footer p {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: #555;
+      letter-spacing: 0.04em;
+    }
+
+    footer a { color: #666; text-decoration: none; }
+    footer a:hover { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a class="logo" href="#"><span>Top AI News</span> / today</a>
+    <a class="cta-small" href="#subscribe">Subscribe →</a>
+  </nav>
+
+  <div class="wrap">
+
+    <!-- Hero -->
+    <section class="hero">
+      <p class="eyebrow">Daily · Free · Signal over noise</p>
+      <h1>The AI industry<br>moves <em>fast.</em><br>Stay ahead of it.</h1>
+      <p class="hero-body">
+        A curated daily digest of the most important developments across AI — sourced from the labs, researchers, and analysts at the forefront of change. Delivered to your inbox every morning at 5 AM.
+      </p>
+    </section>
+
+    <!-- What's inside -->
+    <section class="section">
+      <p class="section-label">What's inside</p>
+      <div class="features">
+        <div class="feature-card">
+          <p class="feature-icon">// 01</p>
+          <h3>Daily AI Pulse</h3>
+          <p>A 2–3 sentence editor's briefing written by Claude on what's actually moving in AI that day — the thread connecting the news.</p>
+        </div>
+        <div class="feature-card">
+          <p class="feature-icon">// 02</p>
+          <h3>Top Article Summaries</h3>
+          <p>Up to 12 curated picks with tight synopses and direct links. Every article scored for signal quality — no fluff, no tutorials.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sources -->
+    <section class="sources-section">
+      <p class="section-label">Sources we monitor</p>
+      <div class="sources-grid">
+        <span class="source-tag">Anthropic</span>
+        <span class="source-tag">OpenAI</span>
+        <span class="source-tag">Google DeepMind</span>
+        <span class="source-tag">Meta AI</span>
+        <span class="source-tag">Microsoft AI</span>
+        <span class="source-tag">Dario Amodei</span>
+        <span class="source-tag">Sam Altman</span>
+        <span class="source-tag">Andrej Karpathy</span>
+        <span class="source-tag">Chip Huyen</span>
+        <span class="source-tag">SemiAnalysis</span>
+        <span class="source-tag">Latent Space</span>
+        <span class="source-tag">Import AI</span>
+        <span class="source-tag">Interconnects</span>
+        <span class="source-tag">Simon Willison</span>
+        <span class="source-tag">Ethan Mollick</span>
+        <span class="source-tag">NVIDIA</span>
+        <span class="source-tag">AWS ML Blog</span>
+        <span class="source-tag">Hugging Face</span>
+        <span class="source-tag">Databricks</span>
+        <span class="source-tag">Cloudflare</span>
+        <span class="source-tag">Azure AI</span>
+        <span class="source-tag">Snowflake</span>
+        <span class="source-tag">Google Cloud AI</span>
+        <span class="source-tag">The Batch</span>
+        <span class="source-tag">+ more</span>
+      </div>
+    </section>
+
+    <!-- Subscribe -->
+    <section class="subscribe-section" id="subscribe">
+      <h2>Get it every morning.</h2>
+      <p>Free. No spam. Unsubscribe anytime.</p>
+      <div class="form-row">
+        <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email">
+        <button id="subscribe-btn" onclick="handleSubscribe()">
+          Subscribe
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p class="form-note">Delivered at 5 AM CST · Powered by Claude Sonnet</p>
+      <p class="form-message" id="form-message"></p>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Top AI News Today · <a href="mailto:simon@topainews.today">simon@topainews.today</a></p>
+    <p><a href="privacy.html">Privacy Policy</a> · <a href="https://www.bottbottgenai.com">bottbottgenai.com</a></p>
+  </footer>
+
+  <script>
+    const SUPABASE_URL = 'https://cimsqaufajitksyjyohy.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNpbXNxYXVmYWppdGtzeWp5b2h5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc5MTIxODAsImV4cCI6MjA5MzQ4ODE4MH0.OehvMRZVlUSF1cO1s5HOmdRSHloQH_fRMkbxCjfSgog';
+
+    async function handleSubscribe() {
+      const input = document.getElementById('email-input');
+      const btn = document.getElementById('subscribe-btn');
+      const msg = document.getElementById('form-message');
+      const email = input.value.trim().toLowerCase();
+
+      msg.className = 'form-message';
+      msg.textContent = '';
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msg.className = 'form-message error';
+        msg.textContent = '→ Please enter a valid email address.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Subscribing…';
+
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/subscribers`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'resolution=merge-duplicates',
+          },
+          body: JSON.stringify({ email, active: true }),
+        });
+
+        if (res.ok || res.status === 201 || res.status === 200) {
+          msg.className = 'form-message success';
+          msg.textContent = '→ You\'re in. First issue hits tomorrow at 5 AM.';
+          input.value = '';
+          gtag('event', 'subscribe', { event_category: 'engagement', event_label: 'newsletter' });
+        } else {
+          const err = await res.json().catch(() => ({}));
+          if (err.code === '23505') {
+            msg.className = 'form-message success';
+            msg.textContent = '→ You\'re already subscribed.';
+          } else {
+            throw new Error(err.message || 'Unknown error');
+          }
+        }
+      } catch (e) {
+        msg.className = 'form-message error';
+        msg.textContent = '→ Something went wrong. Try again or email simon@topainews.today.';
+        console.error(e);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = 'Subscribe <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      }
+    }
+
+    document.getElementById('email-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') handleSubscribe();
+    });
+  </script>
+
+</body>
+</html>
