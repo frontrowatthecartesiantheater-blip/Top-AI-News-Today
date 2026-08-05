@@ -21,6 +21,14 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://topainews.today/quarterly/</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://topainews.today/quarterly/q2-2026.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://topainews.today/privacy.html</loc>
     <priority>0.6</priority>
   </url>
