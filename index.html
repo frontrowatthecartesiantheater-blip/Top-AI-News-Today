@@ -261,6 +261,34 @@
       color: #999;
     }
 
+    /* ── Long-form / long-range cards: whole card is the link ── */
+    .feature-card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+    }
+
+    .feature-card-link:hover,
+    .feature-card-link:focus-visible {
+      transform: translateY(-4px);
+      border-color: #555;
+      background: #131313;
+      box-shadow: 0 16px 36px -12px rgba(0,0,0,0.6), 0 0 26px -6px rgba(240,240,240,0.18), 0 0 0 1px rgba(255,255,255,0.05);
+    }
+
+    .feature-card-link:active { transform: translateY(-1px); }
+
+    .feature-cta { font-size: 13px; color: var(--text); font-weight: 600; letter-spacing: 0.04em; }
+    .feature-cta .arrow { display: inline-block; transition: transform 0.25s ease; }
+    .feature-card-link:hover .arrow { transform: translateX(4px); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .feature-card-link, .feature-cta .arrow { transition: none; }
+      .feature-card-link:hover, .feature-card-link:focus-visible { transform: none; }
+    }
+
     /* ── Sources strip ── */
     .sources-section { padding: 48px 0; border-top: 1px solid var(--border); }
 
@@ -465,24 +493,18 @@
     <!-- Monthly Analysis -->
     <section class="section">
       <p class="section-label">Monthly AI Analysis</p>
-      <div class="feature-card" style="display:block;">
+      <a href="https://topainews.today/monthly/" class="feature-card feature-card-link" style="display:block;">
         <p class="feature-icon">// Long-form</p>
         <h3 style="font-size:17px;margin-bottom:12px;">One theme. Four weeks of signal.</h3>
         <p style="margin-bottom:20px;">At the start of each month, Claude synthesizes four weeks of briefings into a single long-form editorial: the month's dominant theme, what to watch next, and the longer arc.</p>
-        <a href="https://topainews.today/monthly/"
-           style="font-size:13px;color:var(--text);text-decoration:none;font-weight:600;letter-spacing:0.04em;">
-          Browse the monthly reviews →
-        </a>
-      </div>
-      <div class="feature-card" style="display:block;margin-top:16px;">
+        <span class="feature-cta">Browse the monthly reviews <span class="arrow">→</span></span>
+      </a>
+      <a href="https://topainews.today/quarterly/" class="feature-card feature-card-link" style="display:block;margin-top:16px;">
         <p class="feature-icon">// Long-range</p>
         <h3 style="font-size:17px;margin-bottom:12px;">One story. Three months of signal.</h3>
         <p style="margin-bottom:20px;">After each calendar quarter closes, Claude steps back from the news cycle entirely: the quarter's defining story, what to watch next, and where the trajectory points.</p>
-        <a href="https://topainews.today/quarterly/"
-           style="font-size:13px;color:var(--text);text-decoration:none;font-weight:600;letter-spacing:0.04em;">
-          Browse the quarterly reviews →
-        </a>
-      </div>
+        <span class="feature-cta">Browse the quarterly reviews <span class="arrow">→</span></span>
+      </a>
     </section>
 
     <!-- Subscribe -->
